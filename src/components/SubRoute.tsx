@@ -1,28 +1,42 @@
 import React from "react";
-import { Typography } from "@mui/material";
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-
 import { SubRoute } from '../types';
 
 interface SubRouteProps {
-    subRoutes: SubRoute[];
+  subRoutes: SubRoute[];
 }
 
 export const SubRoutes: React.FC<SubRouteProps> = ({ subRoutes }) => {
+  const formattedDateTime = (date: string) => new Date(date).toLocaleTimeString("en-GB", {
+    year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      timeZoneName: "short",
+  })
+
   return (
     <>
-      <Typography sx={{ mt: 3, mb: 0 }} variant="body2">Sub-rotas:</Typography>
-      <List>
+      <h5 style={{ marginTop: 30, marginBottom: 0 }}>Sub-rotas:</h5>
+      <ul>
         {subRoutes.map((subRoute, index) => (
-          <ListItem key={`${subRoute.rideId}-${index}`}>
-            <ListItemText
-              primary={`${subRoute.fullRouteName} (${subRoute.stopFromCityName} ➝ ${subRoute.stopToCityName})`}
-            />
-          </ListItem>
+          <li key={`${subRoute.rideId}-${index}`}>
+            <strong>{`${subRoute.route}: `}</strong>{`${subRoute.fullRouteName}`}
+            <dl>
+              <dt><u>Departure:</u></dt>
+              <dd className="time-item">
+                {`(${subRoute.stopFromCityName} ➝ ${formattedDateTime(subRoute.departure)})`}
+              </dd>
+
+              <dt><u>Arrival:</u></dt>
+              <dd className="time-item">
+                {`(${subRoute.stopToCityName} ➝ ${formattedDateTime(subRoute.arrival)})`}
+              </dd>
+            </dl>
+          </li>
         ))}
-      </List>
+      </ul>
     </>
   )
 }
