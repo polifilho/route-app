@@ -4,7 +4,7 @@ import App from "../App";
 import { OrderItem } from "../types";
 
 // Mock Component Route
-jest.mock("./components/Route", () => () => <div data-testid="route-component">Mocked Route</div>);
+jest.mock("../components/Route", () => () => <div data-testid="route-component">Mocked Route</div>);
 
 describe("App Component", () => {
   // Mock orderItem

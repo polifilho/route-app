@@ -48,9 +48,12 @@ const RouteComponent: React.FC<RouteProps> = ({ orderItem }) => {
           </Typography>
         </CustomTooltip>
 
-        <IconButton onClick={toggleModal}>
-          <RouteIcon />
-        </IconButton>
+        {
+          orderItem.interconnection !== '' && 
+          <IconButton id="open-modal" onClick={toggleModal}>
+            <RouteIcon />
+          </IconButton>
+        }
 
         <CustomModal
           subRoutes={orderItem.subRoutes}
