@@ -51,7 +51,7 @@ describe('CustomModal Component', () => {
       />
     );
 
-    expect(screen.getByText(/Detalhes da Rota/i)).toBeInTheDocument();
+    expect(screen.getByText(/Route Details/i)).toBeInTheDocument();
     expect(screen.getByText(fullRouteName)).toBeInTheDocument();
     expect(screen.getByText('SubRoutes Component')).toBeInTheDocument();
   });
@@ -68,7 +68,7 @@ describe('CustomModal Component', () => {
       />
     );
 
-    expect(screen.getByText('Detalhes da Rota')).toBeInTheDocument();
+    expect(screen.getByText('Route Details')).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button'));
 
@@ -87,6 +87,6 @@ describe('CustomModal Component', () => {
       />
     );
 
-    expect(screen.queryByText('Detalhes da Rota')).not.toBeInTheDocument();
+    expect(screen.queryByText('Route Details')).not.toBeInTheDocument();
   });
 });

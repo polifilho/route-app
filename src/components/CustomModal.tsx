@@ -9,7 +9,7 @@ export const CustomModal = ({ subRoutes, fullRouteName, isModalVisible, toggleMo
   return (
     <Modal open={isModalVisible} onClose={() => toggleModal(!isModalVisible)}>
       <Box sx={{ p: 3, backgroundColor: "white", borderRadius: 2, maxWidth: 400, margin: "auto", mt: 10 }}>
-        <h2>Detalhes da Rota</h2>
+        <h2>Route Details</h2>
         <h3>{fullRouteName}</h3>
 
         <IconButton

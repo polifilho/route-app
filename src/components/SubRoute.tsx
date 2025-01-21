@@ -8,17 +8,17 @@ interface SubRouteProps {
 export const SubRoutes: React.FC<SubRouteProps> = ({ subRoutes }) => {
   const formattedDateTime = (date: string) => new Date(date).toLocaleTimeString("en-GB", {
     year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      timeZoneName: "short",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    timeZoneName: "short",
   })
 
   return (
     <>
-      <h5 style={{ marginTop: 30, marginBottom: 0 }}>Sub-rotas:</h5>
+      <h5 style={{ marginTop: 30, marginBottom: 0 }}>Sub-routes:</h5>
       <ul>
         {subRoutes.map((subRoute, index) => (
           <li key={`${subRoute.rideId}-${index}`}>
@@ -26,12 +26,12 @@ export const SubRoutes: React.FC<SubRouteProps> = ({ subRoutes }) => {
             <dl>
               <dt><u>Departure:</u></dt>
               <dd className="time-item">
-                {`(${subRoute.stopFromCityName} ➝ ${formattedDateTime(subRoute.departure)})`}
+                {`- ${subRoute.stopFromCityName} ➝ ${formattedDateTime(subRoute.departure)}`}
               </dd>
 
               <dt><u>Arrival:</u></dt>
               <dd className="time-item">
-                {`(${subRoute.stopToCityName} ➝ ${formattedDateTime(subRoute.arrival)})`}
+                {`- ${subRoute.stopToCityName} ➝ ${formattedDateTime(subRoute.arrival)}`}
               </dd>
             </dl>
           </li>

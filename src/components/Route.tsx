@@ -22,7 +22,6 @@ const RouteComponent: React.FC<RouteProps> = ({ orderItem }) => {
   const toggleModal = useCallback(() => setIsModalVisible(!isModalVisible), [isModalVisible]);
   const handleTimezoneChange = useCallback((tz: "UTC" | "CET") => setTimezone(tz), []);
 
-
   // Handle Date and Time with useMemo
   const formattedDate = useMemo(() => 
     new Date(orderItem.departAt).toLocaleDateString("en-GB"), 
@@ -47,20 +46,11 @@ const RouteComponent: React.FC<RouteProps> = ({ orderItem }) => {
             {orderItem.route}
           </Typography>
         </CustomTooltip>
-
-        {
-          orderItem.interconnection !== '' && 
+        {orderItem.interconnection !== '' && 
           <IconButton id="open-modal" onClick={toggleModal}>
             <RouteIcon />
           </IconButton>
         }
-
-        <CustomModal
-          subRoutes={orderItem.subRoutes}
-          fullRouteName={orderItem.fullRouteName}
-          toggleModal={toggleModal}
-          isModalVisible={isModalVisible}
-        />
       </Box>
 
       <Box display="flex" flexDirection="column">
@@ -73,6 +63,13 @@ const RouteComponent: React.FC<RouteProps> = ({ orderItem }) => {
           <Typography variant="body2">{formattedTime}</Typography>
         </Box>
       </Box>
+
+      <CustomModal
+        subRoutes={orderItem.subRoutes}
+        fullRouteName={orderItem.fullRouteName}
+        toggleModal={toggleModal}
+        isModalVisible={isModalVisible}
+      />
 
       <SelectTimeZone
         timezone={timezone}

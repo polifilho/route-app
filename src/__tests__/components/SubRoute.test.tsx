@@ -20,9 +20,9 @@ describe("SubRoutes Component", () => {
     },
   ];
 
-  test("Should render the title 'Sub-rotas:'", () => {
+  test("Should render the title 'Sub-routes:'", () => {
     render(<SubRoutes subRoutes={mockSubRoutes} />);
-    expect(screen.getByText("Sub-rotas:")).toBeInTheDocument();
+    expect(screen.getByText("Sub-routes:")).toBeInTheDocument();
   });
 
   test("Should render the sub-route details", () => {
@@ -39,12 +39,12 @@ describe("SubRoutes Component", () => {
 
     expect(screen.getByText(/Departure:/i)).toBeInTheDocument();
     expect(
-      screen.getByText("(Berlin Central Station ➝", { exact: false })
+      screen.getByText("- Berlin Central Station ➝", { exact: false })
     ).toBeInTheDocument();
 
     expect(screen.getByText(/Arrival:/i)).toBeInTheDocument();
     expect(
-      screen.getByText("(Hamburg Central Station ➝", { exact: false })
+      screen.getByText("- Hamburg Central Station ➝", { exact: false })
     ).toBeInTheDocument();
   });
 
