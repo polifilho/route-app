@@ -5,7 +5,7 @@ interface SelectTimeZoneProps {
   setTimezone: (e: any) => void;
 }
 
-const SelectTimeZone: React.FC<SelectTimeZoneProps> = ({ timezone, setTimezone }) => {
+export const SelectTimeZone: React.FC<SelectTimeZoneProps> = ({ timezone, setTimezone }) => {
   return (
     <select id="timezone" value={timezone} onChange={(e) => setTimezone(e.target.value as "UTC" | "CET")}>
       <option value="UTC">Original time zone</option>

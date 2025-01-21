@@ -1,4 +1,16 @@
-export const customOrderItem = {
+import type { Meta, StoryObj } from '@storybook/react';
+import { RouteComponent } from '../components/Route';
+import '../App.css'
+
+const meta = {
+  title: 'Flix/Route',
+  component: RouteComponent,
+  parameters: {
+    layout: 'centered',
+  },
+} satisfies Meta<typeof RouteComponent>;
+
+const customOrderItem = {
     "fullRouteName": "Berlin Central Station (FlixTrain) - Bremen Central Station (FlixTrain)",
     "departAt": "2022-12-13T18:41:13",
     "route": "BL - HB",
@@ -29,4 +41,23 @@ export const customOrderItem = {
         "rideId": "255"
       }
     ]
+}
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const WithInterconnectionIcon: Story = {
+  args: {
+    orderItem: customOrderItem
+  },
 };
+
+export const WithoutInterconnectionIcon: Story = {
+    args: {
+        orderItem: {
+            ...customOrderItem,
+            "interconnection": "",
+        }
+    },
+  };
+  

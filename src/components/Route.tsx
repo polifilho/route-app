@@ -14,7 +14,7 @@ interface RouteProps {
   orderItem: OrderItem
 }
 
-const RouteComponent: React.FC<RouteProps> = ({ orderItem }) => {
+export const RouteComponent: React.FC<RouteProps> = ({ orderItem }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [timezone, setTimezone] = useState<"UTC" | "CET">("UTC");
   
