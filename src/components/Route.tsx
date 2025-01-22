@@ -47,7 +47,7 @@ export const RouteComponent: React.FC<RouteProps> = ({ orderItem }) => {
           </Typography>
         </CustomTooltip>
         {orderItem.interconnection !== '' && 
-          <IconButton id="open-modal" onClick={toggleModal}>
+          <IconButton aria-label="open-modal" onClick={toggleModal}>
             <RouteIcon />
           </IconButton>
         }

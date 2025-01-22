@@ -13,7 +13,7 @@ export const CustomModal = ({ subRoutes, fullRouteName, isModalVisible, toggleMo
         <h3>{fullRouteName}</h3>
 
         <IconButton
-          aria-label="close"
+          aria-label="close-modal"
           onClick={() => toggleModal(false)}
           style={{ position: 'absolute', top: 10, right: 10 }}
           >
